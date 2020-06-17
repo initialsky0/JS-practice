@@ -1,4 +1,5 @@
 const sortNumList = (list) => list.sort((a, b) => a-b);
+// Sorting arrays passed in based on numerical value
 
 const dedupeNumlist = (list) => {
     const orderList = sortNumList(list);
@@ -12,6 +13,7 @@ const dedupeNumlist = (list) => {
     }
     return dedupeList;
 }
+// Deduplicate array of numbers
 
 const cleanNumList = (list) => {
     const dedupeList = dedupeNumlist(list);
@@ -25,6 +27,9 @@ const cleanNumList = (list) => {
     })
     return cleanList;
 }
+// Clean the array passed in, return an array in numerical order from low to high.
+// also contain the same number inside another array
+
 
 const partNumStrList = (list) => {
     const numList = list.filter(value => typeof(value) === 'number');
@@ -32,7 +37,11 @@ const partNumStrList = (list) => {
     return [numList, strList];
 }
 
+// Seperate the int and string from array passed in.
+// Returns an array containing an array of int, then string
+
 const cleanList = (list) => partNumStrList(list).map(value => cleanNumList(value));
+// Origanize an array based on type(int or string) in numerical order
 
 
 const sumTargetNum = (list, target) => {
@@ -52,6 +61,10 @@ const sumTargetNum = (list, target) => {
 
     return result;
 }
+// first parameter takes in an array of number, second parameter 
+// takes in a target sum of 2 number from 1st parameter.
+// Returns a array of combination of numbers from 1st parameter,
+// that sums up to 2nd parameter's value.
 
 const getColor2Hex = (color) => {
     
@@ -67,6 +80,8 @@ const getColor2Hex = (color) => {
 
 }
 
+// convert numbers from 0->255 to hex
+
 const getHex2Color = (hex) => {
     if(hex.length === 1){
         hex += '0';
@@ -77,10 +92,12 @@ const getHex2Color = (hex) => {
     }
     return num;
 }
+// convert hex to number
 
 const checkColorHex = (hex) => {
     return hex[0] === '#' ? hex.slice(1, 7) : hex.slice(0, 6);
 }
+// Accept hex representing color (check for #)
 
 const convertColor = (value1, value2 = 0, value3 = 0) => {
     const str = 'string';
@@ -97,3 +114,7 @@ const convertColor = (value1, value2 = 0, value3 = 0) => {
 
     }
 }
+
+// have 3 parameter. value1 can be the number for red or string of rgb hex.
+// value2 is default 0, but is the green value in numbers, and value3 is blue value.
+// Detects if input is string(hex) or number, then return the converted result.
